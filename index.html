@@ -1,49 +1,413 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
+<html lang="es">
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		
+        <link rel="stylesheet" href="css/themes/floreschillonas.min.css"/>
+  		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css"/>
+
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		
+
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <!--PAGINA CERO
+-->
+
+        <div data-role="page" id="paginacero">
+        <div data-role="header">
+            <h1><img src="logo.png"></img> FLORISTERÍA FLOWERAPP <img src="logo.png"></img></h1>
+            <h1>CREE SU CUENTA DE USUARIO</h1>
             </div>
+        <div data-role="main" class="ui-content">
+                    Nombre de usuario: <input type="text" placeholder="Inserte el nombre"></br>
+                    Contraseña: <input type="text" placeholder="Máximo 10 car."></br>
+                    Repita contraseña: <input type="text" placeholder="Máximo 10 car."></br>   
+            </div>
+        <div data-role="footer">
+            <a href="#paginaperfil" data-transition="fade" class="ui-btn">Entrar</a>
+            
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+    </div>
+    <!--PAGINA perfil
+-->
+
+        <div data-role="page" id="paginaperfil">
+        <div data-role="header">
+            <h1><img src="logo.png"></img> FLORISTERÍA FLOWERAPP <img src="logo.png"></img></h1>
+            <h1>PAGINA DE PERFIL</h1>
+            </div>
+        <div data-role="main" class="ui-content">
+            <a href="#paginauno" data-transition="fade" class="ui-btn">Perfil de usuario</a>
+            <a href="#paginauno" data-transition="fade" class="ui-btn">Ramos</a>
+            <a href="#paginauno" data-transition="fade" class="ui-btn">Accesorios</a>
+            <a href="#paginauno" data-transition="fade" class="ui-btn">Centros</a>                    
+            </div>
+        <div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a data-transition="fade" data-icon="phone" id="id5" href="#contactar">Contactar</a></li>
+                        <li><a data-transition="fade" data-icon="info" id="id4" href="javascript:;">Pedidos</a></li>
+                        <li><a data-transition="fade" data-icon="grid" data-rel="dialog" data-theme="a">Web</a></li>
+                    </ul>
+            </div>
+		</div>
+        
+    </div>
+        <!--PAGINA 1
+-->
+    <div data-role="page" id="paginauno">
+        <div data-role="header">
+            <h1><img src="logo.png"></img> FLORISTERÍA FLOWERAPP <img src="logo.png"></img></h1>
+            <h1> INTRODUZCA EL MENSAJE DE SUS FLORES </h1>
+        </div>
+            <div data-role="main" class="ui-content">
+                        <label><input type="radio" id="mensajes1" name="radio1" value="1"/> Te quiero mucho</label></br>
+       					<label><input type="radio" id="mensajes2" name="radio1" value="1"/> Siento mucho tu pérdida</label></br>
+        				<label><input type="radio" id="mensajes3" name="radio1" value="1"/> Felicidades</label></br>
+        				<label><input type="radio" id="mensajes4" name="radio1" value="1"/> Feliz San Valentín</label></br>
+                        <label><input type="checkbox" id="check1" name="checkbox" value="1" onclick="personalizado();"/>Mensaje personalizado</label>
+                        <label><textarea id="txMensaje" placeholder= "Máx. 150 caracteres" maxlength="150" size="150"></textarea></label>
+        </div>              			
+            <div data-role="footer">
+            <a href="#paginados" data-transition="fade" class="ui-btn">Siguiente</a>
+            <a href="#paginauno" data-transition="fade" class="ui-btn" data-rel="back">Atrás</a>            
+        </div>
+    </div>
+<!--PAGINA 2
+-->
+    <div data-role="page" id="paginados">
+        <div data-role="header">
+            <h1><img src="logo.png"></img> FLORISTERÍA FLOWERAPP <img src="logo.png"></img></h1>
+            <h1>DIRECCIÓN DE FACTURACION</h1>
+        </div>
+       					<label class="control-label" for=nombre> Nombre:</label>				
+       					<input class="form-control" type="text" id="nombre" name="nombre" maxlength="15" size="40"/><br/>        			
+						<label class="control-label" for=apellidos> Apellidos:</label> 					
+						<input class="form-control" type="text" id="apellidos" name="apellidos" maxlength="50" size="40"/><br/>
+						<label class="control-label" for=domicilio> Domicilio:</label> 			
+						<input class="form-control" type="text" id="domicilio" name="domicilio" maxlength="100" size="40"/><br/>
+						<label class="control-label" for=cpostal> Codigo Postal:</label>			
+						<input class="form-control" type="text" id="cpostal" name="cpostal" maxlength="10" size="40"/><br/>
+        				<label class="control-label" id="provincias" for=provincia> Provincia:</label>	
+       						<select>
+								<option value="malaga" > Málaga </option>
+								<option value="sevilla" > Sevilla </option>
+								<option value="jaen" > Jaen </option>
+								<option value="almeria" > Almería </option>
+								<option value="cordoba" > Cordoba </option>
+								<option value="granada" > Granada </option>
+								<option value="cadiz" > Cadiz </option>
+								<option value="huelva" > Huelva </option>
+							</select><br/>
+						<label class="control-label" for=telefono> Telefono:</label> 					
+						<input class="form-control" type="text" id="telefono" name="telefono" maxlength="15" size="40"/><br/>
+						<label class="control-label" for=CorreoElectronico> E-Mail:</label> 			
+						<input class="form-control" type="text" id="correoelectronico" name="CorreoElectronico" maxlength="150" size="40"/><br/>
+        <div data-role="footer">
+            <a href="#paginatres" data-transition="fade" class="ui-btn">Siguiente</a>
+            <a href="#paginauno" data-transition="fade" class="ui-btn" data-rel="back">Atrás</a>
+        </div>
+    </div>
+<!--PAGINA 3
+-->
+<div data-role="page" id="paginatres">
+        <div data-role="header">
+            <h1><img src="logo.png"></img> FLORISTERÍA FLOWERAPP <img src="logo.png"></img></h1>
+            <h1>DIRECCIÓN DE ENVÍO</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <input type="checkbox" id="check2" name="checkbox" value="1" onclick="copiarFactura();"/><p>Click aquí si los datos de envío coinciden con la facturación  <br />
+					<p>
+       				<div class="form-group">
+						<label class="control-label" for=nombre2> Nombre:</label> 				
+        				<input class="form-control" type="text" id="nombre2" name="nombre2" maxlength="15" size="40"/><br/>
+       				 </div>
+        			<div class="form-group">
+						<label class="control-label" for=apellidos2> Apellidos:</label> 					
+       					<input class="form-control" type="text" id="apellidos2" name="apellidos2" maxlength="50" size="40"/><br/>
+       				</div>
+					<div class="form-group">
+						<label class="control-label" for=domicilio2> Domicilio:</label> 			
+						<input class="form-control" type="text" id="domicilio2" name="domicilio2" maxlength="100" size="40"/><br/>
+					</div>
+       				<div class="form-group">
+						<label class="control-label" for=cpostal2> Codigo Postal:</label>			
+						<input class="form-control" type="text" id="cpostal2" name="cpostal2" maxlength="10" size="40"/><br/>
+					</div>
+        			<div class="form-group">
+       					 <label class="control-label" id="provincias2" for=provincias2> Provincia:</label>	
+       						 <select>
+								<option value="malaga" > Málaga </option>
+								<option value="sevilla" > Sevilla </option>
+								<option value="jaen" > Jaen </option>
+								<option value="almeria" > Almería </option>
+								<option value="cordoba" > Cordoba </option>
+								<option value="granada" > Granada </option>
+								<option value="cadiz" > Cadiz </option>
+								<option value="huelva" > Huelva </option>
+							</select><br/>
+       				 </div>
+					<div class="form-group">
+						<label class="control-label" for=ciudad2> Ciudad:</label> 				
+						<input class="form-control" type="text" id="ciudad2" name="ciudad2" maxlength="50" size="40"/><br/>
+					</div>
+        			<div class="form-group">
+						<label class="control-label" for=telefono2> Telefono:</label> 					
+        				<input class="form-control" type="text" id="telefono2" name="telefono2" maxlength="15" size="40"/><br/>
+        			</div>
+       				 <div class="form-group">
+						<label class="control-label" for=CorreoElectronico> Correo Electrónico:</label> 			
+       					<input class="form-control" type="text" id="correoelectronico2" name="CorreoElectronico" maxlength="150" size="40"/><br/>
+        			</div>
+           
+        </div>
+        <div data-role="footer">
+            <a href="#paginacuatro" data-transition="fade" class="ui-btn">Siguiente</a>
+            <a href="#paginados" data-transition="fade" class="ui-btn" data-rel="back">Atrás</a>
+        </div>
+    </div>
+<!--PAGINA 4
+-->
+<div data-role="page" id="paginacuatro">
+        <div data-role="header">
+            <h1><img src="logo.png"></img> FLORISTERÍA FLOWERAPP <img src="logo.png"></img></h1>
+            <h1>SELECCIONE FECHA DE ENVÍO</h1>
+        </div>
+            <label for=Dia> Dia:</label>
+        			<select>				
+						<option value="1" > 1 </option>
+						<option value="2" > 2 </option>
+						<option value="3" > 3 </option>
+						<option value="4" > 4 </option>
+						<option value="5" > 5 </option>
+						<option value="6" > 6 </option>
+						<option value="7" > 7 </option>
+						<option value="8" > 8 </option>
+						<option value="9" > 9 </option>
+						<option value="10" > 10 </option>
+						<option value="11" > 11 </option>
+						<option value="12" > 12 </option>
+						<option value="13" > 13 </option>
+						<option value="14" > 14 </option>
+						<option value="15" > 15 </option>
+						<option value="16" > 16 </option>
+						<option value="17" > 17 </option>
+						<option value="18" > 18 </option>
+						<option value="19" > 19 </option>
+						<option value="20" > 20 </option>
+						<option value="21" > 21 </option>
+						<option value="22" > 22 </option>
+						<option value="23" > 23 </option>
+						<option value="24" > 24 </option>
+						<option value="25" > 25 </option>
+						<option value="26" > 26 </option>
+						<option value="27" > 27 </option>
+						<option value="28" > 28 </option>
+						<option value="29" > 29 </option>
+						<option value="30" > 30 </option>
+						<option value="31" > 31 </option>
+       			</select><br />
+        		<label for=Mes> Mes:</label>
+        			<select>
+						<option value="Enero" > Enero </option>
+						<option value="Febrero" > Febrero </option>
+						<option value="Marzo" > Marzo </option>
+						<option value="Abril" > Abril </option>
+						<option value="Mayo" > Mayo </option>
+						<option value="Junio" > Junio </option>
+						<option value="Julio" > Julio </option>
+						<option value="Agosto" > Agosto </option>
+						<option value="Septiembre" > Septiembre </option>
+						<option value="Octubre" > Octubre </option>
+						<option value="Noviembre" > Noviembre </option>
+						<option value="Diciembre" > Diciembre </option>
+				</select><br/>
+       			<label for=Año> Año:</label>
+        			<select>
+						<option value="2016" > 2016 </option>
+						<option value="2017" > 2017 </option>
+						<option value="2018" > 2018 </option>
+					</select><br/>
+        <div data-role="footer">
+            <a href="#paginacinco" data-transition="fade" class="ui-btn">Siguiente</a>
+            <a href="#paginatres" data-transition="fade" class="ui-btn" data-rel="back">Atrás</a>
+        </div>
+    </div>
+<!--PAGINA 5
+-->
+<div data-role="page" id="paginacinco">
+        <div data-role="header">
+            <h1>FORMA DE PAGO</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+                    <input type="radio" id="men1" name="radio1" value="1"><p>VISA    
+                    <input type="radio" id="men2" name="radio1" value="1"><p>MASTERCARD
+                    <input type="radio" id="men3" name="radio1" value="1"><p>AMERICAN EXPRESS
+                    <p></p>
+                    Nº de tarjeta
+                    <input type="text" placeholder="Numero de tarjeta" maxlength="150" size="50">
+                    Código de control
+                    <input type="text" placeholder="CVV" maxlength="3" size="10">
+                    Válida hasta
+                    <input type="date" name="fecha_caducidad"> 
+        </div>  
+        <div data-role="footer">
+            <a href="#paginacero" data-transition="fade" class="ui-btn">Siguiente</a>
+            <a href="#paginacuatro" data-transition="fade" class="ui-btn" data-rel="back">Atrás</a>
+        </div>
+    </div>
+<!--PAGINA 6
+-->
+
+
+    
+
+
+<!--SCRIPT
+-->
+        <script>
+    	if(window.addEventListener){
+			window.addEventListener("load", setUpPagina, false);
+		} else if (window.attachEvent){
+			window.attachEvent("onload", setUpPagina);	
+		}
+
+    	function personalizado()
+	    {
+		    var mensaje = document.getElementById('check1').checked;
+		    if(mensaje)
+		    {
+			    document.getElementById('txMensaje').disabled=false;
+			    document.getElementById('mensajes1').disabled=true;
+				document.getElementById('mensajes1').checked=false;
+			    document.getElementById('mensajes2').disabled=true;
+			    document.getElementById('mensajes2').checked=false;
+			    document.getElementById('mensajes3').disabled=true;
+			    document.getElementById('mensajes3').checked=false;
+			    document.getElementById('mensajes4').disabled=true;
+			    document.getElementById('mensajes4').checked=false;
+		    }
+		    else
+		    {
+			    document.getElementById('txMensaje').disabled=true;
+			    document.getElementById('txMensaje').value = "";
+			    document.getElementById('mensajes1').disabled=false;
+			    document.getElementById('mensajes2').disabled=false;
+			    document.getElementById('mensajes3').disabled=false;
+			    document.getElementById('mensajes4').disabled=false;			    
+		    }
+	    }
+	    
+	    function copiarFactura()
+	    {
+	    	var dirFactura = document.getElementById('check2').checked;
+			if(dirFactura)
+			{
+				document.getElementById('nombre2').value = document.getElementById('nombre').value;
+				document.getElementById('apellidos2').value = document.getElementById('apellidos').value;
+				document.getElementById('domicilio2').value = document.getElementById('domicilio').value;
+				document.getElementById('cpostal2').value = document.getElementById('cpostal').value;
+				document.getElementById('provincias2').selectedIndex = document.getElementById('provincias').selectedIndex;
+				document.getElementById('ciudad2').value = document.getElementById('ciudad').value;
+				document.getElementById('telefono2').value = document.getElementById('telefono').value;
+
+				document.getElementById('nombre2').disabled=true;
+				document.getElementById('apellidos2').disabled=true;
+				document.getElementById('domicilio2').disabled=true;
+				document.getElementById('cpostal2').disabled=true;
+				document.getElementById('provincias2').disabled=true;
+				document.getElementById('ciudad2').disabled=true;
+				document.getElementById('telefono2').disabled=true;
+			} else
+			{
+				document.getElementById('nombre2').disabled=false;
+				document.getElementById('apellidos2').disabled=false;
+				document.getElementById('domicilio2').disabled=false;
+				document.getElementById('cpostal2').disabled=false;
+				document.getElementById('provincias2').disabled=false;
+				document.getElementById('ciudad2').disabled=false;
+				document.getElementById('telefono2').disabled=false;
+			}
+	    }
+	    
+	    function cargarDias() {
+	    	for (i=1; i<29; i++) {
+	    		var option = document.createElement("option");
+				option.text = i;
+				option.value = i;
+				var select = document.getElementById("diaEntrega");
+				select.appendChild(option);
+	    	}
+	    }
+	    
+	    function actualizarDias() {
+	    	var diaEntrega = document.getElementById("diaEntrega");
+	    	var mesEntrega = document.getElementById("mesEntrega");
+	    	var yearEntrega = document.getElementById("yearEntrega");
+	    	var mesSeleccion = mesEntrega.options[mesEntrega.selectedIndex].value;
+	    	var fechas = diaEntrega.getElementsByTagName("option");
+	    	while (fechas[28])
+			{
+				diaEntrega.removeChild(fechas[28]);
+			}
+			if (yearEntrega.selectedIndex === -1) {
+				yearEntrega.selectedIndex = 0;
+			}
+	    	if (mesSeleccion === "2" && yearEntrega.options[yearEntrega.selectedIndex].value === "2018") {
+	    		var option = document.createElement("option");
+				option.text = 29;
+				option.value = 29;
+				var select = document.getElementById("diaEntrega");
+				select.appendChild(option);
+	    	} else if (mesSeleccion === "1" || mesSeleccion === "3" || mesSeleccion === "5" || mesSeleccion === "7" || mesSeleccion === "8" || mesSeleccion === "10" || mesSeleccion === "12") {
+	    		var option = document.createElement("option");
+				option.text = 29;
+				option.value = 29;
+				var select = document.getElementById("diaEntrega");
+				select.appendChild(option);
+				option = document.createElement("option");
+				option.text = 30;
+				option.value = 30;
+				select = document.getElementById("diaEntrega");
+				select.appendChild(option);
+				option = document.createElement("option");
+				option.text = 31;
+				option.value = 31;
+				select = document.getElementById("diaEntrega");
+				select.appendChild(option);
+	    	} else if (mesSeleccion === "4" || mesSeleccion === "6" || mesSeleccion === "9" || mesSeleccion === "11") {
+	    		var option = document.createElement("option");
+				option.text = 29;
+				option.value = 29;
+				var select = document.getElementById("diaEntrega");
+				select.appendChild(option);
+				option = document.createElement("option");
+				option.text = 30;
+				option.value = 30;
+				select = document.getElementById("diaEntrega");
+				select.appendChild(option);
+	    	}
+	    }
+	    
+	    function removerValoresSelected() {
+			var selectVacias = document.getElementsByTagName("select");
+			for(var i=0; i < selectVacias.length; i++){
+				selectVacias[i].selectedIndex = -1;	
+			}
+		}
+		
+		function setUpPagina() {
+			removerValoresSelected();
+			cargarDias();
+		}	
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
     </body>
 </html>
